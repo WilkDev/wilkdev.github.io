@@ -67,13 +67,17 @@
                         </button>
 
                         <ul class="dropdown-menu dropdown-menu-end">
+
+
                             <li>
-                                <a class="dropdown-item d-flex justify-content-center" href="#">
-                                    <img src="https://flagcdn.com/w20/gb.png" class="lang-flag">
+                                <a class="dropdown-item lang-switch" data-lang="en"
+                                    href="{{ site.baseurl }}/en{{ page.url | remove_first: '/pl' | remove_first: '/en' }}">
+                                    <img src="https://flagcdn.com/w20/gb.png" class="lang-flag" alt="EN">
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item d-flex justify-content-center" href="#">
+                                <a class="dropdown-item lang-switch" data-lang="pl"
+                                    href="{{ site.baseurl }}/pl{{ page.url | remove_first: '/pl' | remove_first: '/en' }}">
                                     <img src="https://flagcdn.com/w20/pl.png" class="lang-flag">
                                 </a>
                             </li>
