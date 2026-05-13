@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+
+<script type="module">
+    import { getLanguage } from "{{ site.baseurl }}/assets/scripts/scripts-global.js";
+    window.location.replace(`/${getLanguage()}/`);
+</script>
+
+</body>
+</html>

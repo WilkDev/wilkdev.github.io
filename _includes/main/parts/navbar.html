@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-blur">
+
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ site.baseurl }}/{{page.lang}}/">
+
+            <img src="{{ site.baseurl }}/assets/img/general/icon.ico" alt="Home" class="rounded img-fluid navbar-icon">
+
+            <b>{{site.creator}}</b>
+        </a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse w-100 " id="navbarNav">
+
+            <!-- LEFT LINKS -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+
+                <li class="nav-item mx-auto">
+                    <a class="nav-link" href="{{ site.baseurl }}/projects">Projects</a>
+                </li>
+                <li class="nav-separator d-none d-lg-block mx-2"></li>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link" href="{{ site.baseurl }}/services.html">Services</a>
+                </li>
+                <li class="nav-separator d-none d-lg-block mx-2"></li>
+                <li class="nav-item nav-hover mx-auto">
+                    <a class="nav-link" href="#">
+
+                        <div class="d-none d-lg-inline">
+                            <i class="bi bi-folder"></i>
+                            <span class="nav-text">Projects</span>
+                        </div>
+
+                        <span class="d-inline d-lg-none"><i class="bi bi-folder"></i> Projects</span>
+
+                    </a>
+                </li>
+            </ul>
+
+            <!-- RIGHT CONTROLS (theme + language) -->
+            <div class="d-flex align-items-left gap-2 ms-auto">
+
+                <div >
+
+                    <!-- Theme -->
+                    <button class="btn btn-outline-secondary btn-sm theme-switch">
+                        <i class="bi bi-moon-fill moon-icon"></i>
+                        <i class="bi bi-sun-fill sun-icon"></i>
+                    </button>
+
+                    <!-- Language -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="dropdown">
+                            {% if page.lang == 'pl' %}
+                            <img src="https://flagcdn.com/w20/pl.png" class="lang-flag">
+                            {% else %}
+                            <img src="https://flagcdn.com/w20/gb.png" class="lang-flag">
+                            {% endif %}
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item d-flex justify-content-center" href="#">
+                                    <img src="https://flagcdn.com/w20/gb.png" class="lang-flag">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex justify-content-center" href="#">
+                                    <img src="https://flagcdn.com/w20/pl.png" class="lang-flag">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</nav>
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/main/navbar-style.css">

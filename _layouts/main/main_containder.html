@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}" data-bs-theme="light">
+
+<head>
+    {% include global-head.html %}
+
+
+    <title>{{ page.TITLE }}</title>
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/img/general/icon.ico">
+</head>
+
+<body class="d-flex flex-column min-vh-100 pt-5 pt-lg-4">
+
+    {% include main/parts/navbar.html %}
+
+    <main class="flex-grow-1">
+        <div class="container py-4">
+            {{ content }}
+        </div>
+    </main>
+
+    {% include main/parts/footer.html %}
+
+</body>
+
+</html>

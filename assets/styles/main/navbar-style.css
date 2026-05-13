@@ -1,0 +1,80 @@
+/* =========================
+   NAVBAR GLASS EFFECT
+========================= */
+.navbar-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    background-color: var(--navbar-bg);
+    border-bottom: 1px solid var(--navbar-border);
+
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* hover effect */
+.navbar-blur:hover {
+    background-color: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+/* =========================
+   NAV ITEMS
+========================= */
+.navbar .nav-link {
+    border-radius: 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+    color: var(--text);
+}
+
+.navbar .nav-link:hover {
+    background: var(--hover-bg);
+}
+
+/* =========================
+   ICON SIZES
+========================= */
+.navbar-icon {
+    height: 1.6em;
+    width: auto;
+}
+
+.lang-flag {
+    height: 1.6em;
+    width: auto;
+    max-width: 2em;
+}
+
+/* =========================
+   BUTTON ICON CONTAINERS
+========================= */
+.nav-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   SEPARATOR (optional)
+========================= */
+.nav-separator {
+    width: 1px;
+    height: 2rem;
+    background: var(--navbar-border);
+}
+
+/* =========================
+   HOVER TEXT EXPAND
+========================= */
+.nav-hover .nav-text {
+    opacity: 0;
+    transform: translateX(-5px);
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-hover:hover .nav-text {
+    opacity: 1;
+    transform: translateX(0);
+    max-width: 120px;
+}
