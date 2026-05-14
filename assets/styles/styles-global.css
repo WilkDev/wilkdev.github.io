@@ -45,3 +45,11 @@ html[data-bs-theme="dark"] .sun-icon {
     display: inline-block;
 }
 
+html{
+    margin: 0;
+    max-width: 100vw;
+}
+
+.test{
+    background-color: aqua;
+}

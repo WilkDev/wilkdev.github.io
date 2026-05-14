@@ -1,0 +1,101 @@
+.landing-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-bg::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/assets/svg/mountains_bg.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+}
+
+html[data-bs-theme="dark"] .landing-bg::before {
+    filter: invert(1) brightness(0.9);
+}
+
+.landing-title {
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+}
+
+html[data-bs-theme="dark"] .landing-title {
+    -webkit-text-stroke: 3px rgb(0, 0, 0);
+}
+
+
+.landing-ctx {
+    margin-top: 12rem;
+    white-space: pre-line;
+    padding: 0rem 1.25rem;
+    border-radius: 1rem;
+
+    max-width: 40rem;
+    width: fit-content;
+    display: inline-block;
+
+    /* removed ONLY text effects */
+    -webkit-text-stroke: none;
+    text-shadow: none;
+
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* dark mode */
+html[data-bs-theme="dark"] .landing-ctx {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 
+SKY
+
+*/
+.star {
+    z-index: -50;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.blink {
+    animation: blink ease-in-out infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.star-0 {
+    height: 0.5px;
+    width: 0.5px;
+}
+
+.star-1 {
+    height: 1px;
+    width: 1px;
+}
+
+.star-2 {
+    height: 1.5px;
+    width: 1.5px;
+}
