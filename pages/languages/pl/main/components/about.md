@@ -7,4 +7,3 @@ permalink: /pl/about
 TITLE: O mnie
 ---
 
-{% include main/components/about.html %}

@@ -7,4 +7,3 @@ permalink: /en/about
 TITLE: About me
 ---
 
-{% include main/components/about.html %}
