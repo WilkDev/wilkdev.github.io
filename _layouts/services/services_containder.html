@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}" data-bs-theme="light">
+
+<head>
+    {% include global-head.html %}
+
+
+    <title>{{site.creator}} - {{ page.TITLE }}</title>
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/img/general/icon.ico">
+</head>
+
+<body class="d-flex vh-100 overflow-hidden">
+
+    <!-- SIDEBAR -->
+    {% include services/parts/sidebar.html %}
+
+    <div class="d-flex flex-column flex-grow-1 overflow-hidden">
+
+        <main class="flex-grow-1 overflow-auto p-3">
+            {{ content }}
+        </main>
+
+        {% include main/parts/footer.html %}
+
+    </div>
+
+</body>
+
+</html>

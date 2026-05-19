@@ -23,7 +23,8 @@
             <!-- LEFT LINKS -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
 
-                <li class="nav-item mx-auto">
+                <li class="d-none d-lg-block mx-2"></li>
+                <!-- <li class="nav-item mx-auto">
                     <a class="nav-link" href="{{ site.baseurl }}/projects">Projects</a>
                 </li>
                 <li class="nav-separator d-none d-lg-block mx-2"></li>
@@ -42,14 +43,21 @@
                         <span class="d-inline d-lg-none"><i class="bi bi-folder"></i> Projects</span>
 
                     </a>
-                </li>
+                </li> -->
             </ul>
 
             <!-- RIGHT CONTROLS (theme + language) -->
-            <div class="d-flex align-items-left gap-2 ms-auto">
+            <div class="d-flex align-items-left gap-2 ms-auto controls-margin">
 
                 <div class="d-flex align-items-center gap-2 ms-auto">
-
+                    <a href="{{ site.baseurl }}/{{page.lang}}/services.html" class="btn btn-outline-secondary btn-sm" alt="Services"
+                        rel="noopener noreferrer">
+                        <i class="bi bi-wrench-adjustable-circle"></i>
+                    </a>
+                    <a href="{{site.github}}" class="btn btn-outline-secondary btn-sm" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="bi bi-github"></i>
+                    </a>
                     <!-- Theme -->
                     <button class="btn btn-outline-secondary btn-sm theme-switch">
                         <i class="bi bi-moon-fill moon-icon"></i>
