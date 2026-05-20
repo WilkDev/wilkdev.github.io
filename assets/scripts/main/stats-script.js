@@ -1,20 +1,4 @@
-const canvasLang = document.getElementById("donutChartLang");
-const canvasCategories = document.getElementById("donutCategoryChart");
-const canvasOther = document.getElementById("simpleOtherChart");
-
-function getThemeTextColor() {
-    const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
-    return isDark ? "#fff" : "#111";
-}
-
-function getThemeSubTextColor() {
-    const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
-    return isDark ? "#ccc" : "#444";
-}
-
-let hoveredLangIndex = -1;
-let hoveredCategoryIndex = -1;
-
+// == INIT ==
 const COLORS = [
     "#4dabf7",
     "#20c997",
@@ -26,21 +10,28 @@ const COLORS = [
 ];
 
 const CHART = {
-    cx: 110,
-    cy: 120,
+    cx: 100,
+    cy: 140,
     r: 80,
     ir: 45
 };
+const canvasLang = document.getElementById("donutChartLang");
+const canvasCategories = document.getElementById("donutCategoryChart");
+const canvasOther = document.getElementById("simpleOtherChart");
 
-// #region ===================== LANG ===================== */
+let langData = { labels: [], values: [], total: 0, summary: {}, ...CHART };
+let categoriesData = { labels: [], values: [], total: 0, summary: {}, ...CHART };
+let osData = { labels: [], values: [], total: 0, summary: {}, ...CHART };
+let editorsData = { labels: [], values: [], total: 0, summary: {}, ...CHART };
 
-let langData = {
-    labels: [],
-    values: [],
-    total: 0,
-    summary: {},
-    ...CHART
-};
+let hoveredLangIndex = -1;
+let hoveredCategoryIndex = -1;
+
+
+
+// #region == LANG ==
+
+
 
 function groupLang(name) {
     const n = name.toLowerCase();
@@ -75,15 +66,22 @@ function buildLangSummary(languages) {
     return summary;
 }
 
-function drawChartLangs(summary) {
+function buildLangData(summary) {
+    const labels = Object.keys(summary);
+    const values = labels.map(k => summary[k] / 3600);
+    const total = values.reduce((a, b) => a + b, 0) || 1;
 
+    langData = { labels, values, total, summary, ...CHART };
+    return langData;
+}
+
+function drawChartLangs(data) {
     const ctx = canvasLang.getContext("2d");
     const title = canvasLang.dataset.title || "Languages";
 
-    const labels = Object.keys(summary);
-    const values = labels.map(k => summary[k] / 3600);
-
-    const total = values.reduce((a, b) => a + b, 0) || 1;
+    const labels = data.labels;
+    const values = data.values;
+    const total = data.total;
 
     ctx.clearRect(0, 0, canvasLang.width, canvasLang.height);
 
@@ -91,21 +89,21 @@ function drawChartLangs(summary) {
     ctx.font = "bold 20px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
+
     const rect = canvasLang.getBoundingClientRect();
     ctx.fillText(title, rect.width / 2, 10);
 
     let start = -Math.PI / 2;
 
     labels.forEach((label, i) => {
-
         const slice = (values[i] / total) * Math.PI * 2;
         const end = start + slice;
 
-        const radius = hoveredLangIndex === i ? langData.r + 10 : langData.r;
+        const radius = hoveredLangIndex === i ? data.r + 10 : data.r;
 
         ctx.beginPath();
-        ctx.arc(langData.cx, langData.cy, radius, start, end);
-        ctx.arc(langData.cx, langData.cy, langData.ir, end, start, true);
+        ctx.arc(data.cx, data.cy, radius, start, end);
+        ctx.arc(data.cx, data.cy, data.ir, end, start, true);
         ctx.closePath();
 
         ctx.fillStyle = COLORS[i % COLORS.length];
@@ -118,50 +116,30 @@ function drawChartLangs(summary) {
     ctx.font = "bold 14px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(total.toFixed(1) + "h", langData.cx, langData.cy);
+    ctx.fillText(total.toFixed(1) + "h", data.cx, data.cy);
 
     let legendY = 60;
     const legendX = 220;
 
     labels.forEach((label, i) => {
-
         ctx.fillStyle = COLORS[i % COLORS.length];
         ctx.fillRect(legendX, legendY - 8, 14, 14);
 
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
 
-        ctx.fillStyle = hoveredLangIndex === i ? COLORS[i % COLORS.length] : getThemeSubTextColor();
-
+        ctx.fillStyle = hoveredLangIndex === i ? COLORS[i] : getThemeSubTextColor();
         ctx.font = "bold 13px Arial";
 
-        ctx.fillText(
-            `${label} (${values[i].toFixed(1)}h)`,
-            legendX + 24,
-            legendY
-        );
+        ctx.fillText(`${label} (${values[i].toFixed(1)}h)`, legendX + 24, legendY);
 
         legendY += 32;
     });
-
-    langData = {
-        labels,
-        values,
-        total,
-        summary,
-        ...CHART
-    };
 }
 // #endregion
-// #region ===================== CATEGORIES ===================== */
+// #region == CATEGORIES ==
 
-let categoriesData = {
-    labels: [],
-    values: [],
-    total: 0,
-    summary: {},
-    ...CHART
-};
+
 
 function groupCategories(name) {
     const n = name.toLowerCase();
@@ -195,15 +173,22 @@ function buildCategoriesSummary(categories) {
     return summary;
 }
 
-function drawChartCategories(summary) {
+function buildCategoriesData(summary) {
+    const labels = Object.keys(summary);
+    const values = labels.map(k => summary[k] / 3600);
+    const total = values.reduce((a, b) => a + b, 0) || 1;
 
+    categoriesData = { labels, values, total, summary, ...CHART };
+    return categoriesData;
+}
+
+function drawChartCategories(data) {
     const ctx = canvasCategories.getContext("2d");
     const title = canvasCategories.dataset.title || "Categories";
 
-    const labels = Object.keys(summary);
-    const values = labels.map(k => summary[k] / 3600);
-
-    const total = values.reduce((a, b) => a + b, 0) || 1;
+    const labels = data.labels;
+    const values = data.values;
+    const total = data.total;
 
     ctx.clearRect(0, 0, canvasCategories.width, canvasCategories.height);
 
@@ -211,21 +196,21 @@ function drawChartCategories(summary) {
     ctx.font = "bold 20px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
+
     const rect = canvasCategories.getBoundingClientRect();
     ctx.fillText(title, rect.width / 2, 10);
 
     let start = -Math.PI / 2;
 
     labels.forEach((label, i) => {
-
         const slice = (values[i] / total) * Math.PI * 2;
         const end = start + slice;
 
-        const radius = hoveredCategoryIndex === i ? categoriesData.r + 10 : categoriesData.r;
+        const radius = hoveredCategoryIndex === i ? data.r + 10 : data.r;
 
         ctx.beginPath();
-        ctx.arc(categoriesData.cx, categoriesData.cy, radius, start, end);
-        ctx.arc(categoriesData.cx, categoriesData.cy, categoriesData.ir, end, start, true);
+        ctx.arc(data.cx, data.cy, radius, start, end);
+        ctx.arc(data.cx, data.cy, data.ir, end, start, true);
         ctx.closePath();
 
         ctx.fillStyle = COLORS[i % COLORS.length];
@@ -238,65 +223,36 @@ function drawChartCategories(summary) {
     ctx.font = "bold 14px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(total.toFixed(1) + "h", categoriesData.cx, categoriesData.cy);
+    ctx.fillText(total.toFixed(1) + "h", data.cx, data.cy);
 
     let legendY = 60;
     const legendX = 220;
 
     labels.forEach((label, i) => {
-
         ctx.fillStyle = COLORS[i % COLORS.length];
         ctx.fillRect(legendX, legendY - 8, 14, 14);
 
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
 
-        ctx.fillStyle = hoveredCategoryIndex === i ? COLORS[i % COLORS.length] : getThemeSubTextColor();
-
+        ctx.fillStyle = hoveredCategoryIndex === i ? COLORS[i] : getThemeSubTextColor();
         ctx.font = "bold 13px Arial";
 
-        ctx.fillText(
-            `${label} (${values[i].toFixed(1)}h)`,
-            legendX + 24,
-            legendY
-        );
+        ctx.fillText(`${label} (${values[i].toFixed(1)}h)`, legendX + 24, legendY);
 
         legendY += 32;
     });
-
-    categoriesData = {
-        labels,
-        values,
-        total,
-        summary,
-        ...CHART
-    };
 }
 // #endregion
-// #region Other
-let osData = {
-    labels: [],
-    values: [],
-    total: 0,
-    summary: {},
-    ...CHART
-};
-let editorsData = {
-    labels: [],
-    values: [],
-    total: 0,
-    summary: {},
-    ...CHART
-};
+// #region == OTHER ==
 
 function groupOS(name) {
     const n = name.toLowerCase();
-
     if (n.includes("windows")) return "Windows";
     if (n.includes("linux")) return "Linux";
-
     return "Other";
 }
+
 function groupEditors(name) {
     const n = name.toLowerCase();
 
@@ -307,6 +263,16 @@ function groupEditors(name) {
     if (n.includes("android studio")) return "Android Studio";
 
     return "Other";
+}
+
+function buildOsSummary(os) {
+    const summary = { Windows: 0, Linux: 0, Other: 0 };
+
+    os.forEach(o => {
+        summary[groupOS(o.name)] += o.total_seconds;
+    });
+
+    return summary;
 }
 
 function buildEditorsSummary(editors) {
@@ -320,36 +286,18 @@ function buildEditorsSummary(editors) {
     };
 
     editors.forEach(e => {
-        const key = groupEditors(e.name);
-        summary[key] += e.total_seconds;
+        summary[groupEditors(e.name)] += e.total_seconds;
     });
 
     return summary;
 }
 
-function buildOsSummary(os) {
-    const summary = {
-        "Windows": 0,
-        "Linux": 0,
-        "Other": 0
-    };
-
-    os.forEach(o => {
-        const key = groupOS(o.name);
-        summary[key] += o.total_seconds;
-    });
-
-    return summary;
-}
 function drawOther(canvas, osSummary, editorSummary) {
-
     const titles = JSON.parse(canvas.dataset.titles);
-    const titleOS = titles.os || "Operating Systems";
-    const titleEditors = titles.editors || "Editors";
 
     const ctx = canvas.getContext("2d");
-
     const rect = canvas.getBoundingClientRect();
+
     const width = rect.width;
     const height = rect.height;
 
@@ -357,8 +305,8 @@ function drawOther(canvas, osSummary, editorSummary) {
 
     const sectionHeight = height / 2;
 
-    drawStackedBar(ctx, osSummary, titleOS, width, 0);
-    drawStackedBar(ctx, editorSummary, titleEditors, width, sectionHeight);
+    drawStackedBar(ctx, osSummary, titles.os || "OS", width, 0);
+    drawStackedBar(ctx, editorSummary, titles.editors || "Editors", width, sectionHeight);
 }
 
 function drawStackedBar(ctx, summary, title, width, offsetY) {
@@ -411,10 +359,8 @@ function drawStackedBar(ctx, summary, title, width, offsetY) {
         ctx.fillText(label, x + 15, legendY + 5);
     });
 }
-
 // #endregion
-
-/* ===================== RESIZE ===================== */
+// #region == RESIZE ==
 
 function resizeCanvas(canvas) {
     const rect = canvas.getBoundingClientRect();
@@ -427,25 +373,24 @@ function resizeCanvas(canvas) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 }
-
-/* ===================== HOVER ===================== */
+// #endregion
+// #region == HOVER ==
 
 function setupDonutHover(canvas, dataRef, redraw, setHover) {
-
     canvas.addEventListener("mousemove", (e) => {
-
         if (!dataRef.labels.length) return;
 
         const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
 
-        const x = e.clientX - rect.left - dataRef.cx;
-        const y = e.clientY - rect.top - dataRef.cy;
+        const x = (e.clientX - rect.left) * dpr - dataRef.cx * dpr;
+        const y = (e.clientY - rect.top) * dpr - dataRef.cy * dpr;
 
         const distance = Math.sqrt(x * x + y * y);
 
-        if (distance > dataRef.r + 12 || distance < dataRef.ir) {
+        if (distance > (dataRef.r + 12) * dpr || distance < dataRef.ir * dpr) {
             setHover(-1);
-            redraw(dataRef.summary);
+            redraw(dataRef);
             return;
         }
 
@@ -456,13 +401,12 @@ function setupDonutHover(canvas, dataRef, redraw, setHover) {
         const total = dataRef.total || 1;
 
         for (let i = 0; i < dataRef.labels.length; i++) {
-
             const slice = (dataRef.values[i] / total) * Math.PI * 2;
             const end = start + slice;
 
             if (angle >= start && angle <= end) {
                 setHover(i);
-                redraw(dataRef.summary);
+                redraw(dataRef);
                 return;
             }
 
@@ -470,23 +414,30 @@ function setupDonutHover(canvas, dataRef, redraw, setHover) {
         }
 
         setHover(-1);
-        redraw(dataRef.summary);
+        redraw(dataRef);
     });
 
     canvas.addEventListener("mouseleave", () => {
         setHover(-1);
-        redraw(dataRef.summary);
+        redraw(dataRef);
     });
 }
+// #endregion
+// #region == REDRAW ==
 
-/* ===================== INIT ===================== */
+function redrawAll() {
+    drawChartLangs(langData);
+    drawChartCategories(categoriesData);
+    drawOther(canvasOther, osData, editorsData);
+}
+// #endregion
+
 
 fetch("/assets/data/wakatime.json")
     .then(r => r.json())
     .then(json => {
-
-        const langs = buildLangSummary(json.data.languages);
-        const categories = buildCategoriesSummary(json.data.categories);
+        const langSummary = buildLangSummary(json.data.languages);
+        const catSummary = buildCategoriesSummary(json.data.categories);
 
         osData = buildOsSummary(json.data.operating_systems);
         editorsData = buildEditorsSummary(json.data.editors);
@@ -495,43 +446,41 @@ fetch("/assets/data/wakatime.json")
         resizeCanvas(canvasCategories);
         resizeCanvas(canvasOther);
 
-        drawChartLangs(langs);
-        drawChartCategories(categories);
+        buildLangData(langSummary);
+        buildCategoriesData(catSummary);
 
-        drawOther(canvasOther, osData, editorsData);
-
+        redrawAll();
 
         setupDonutHover(canvasLang, langData, drawChartLangs, i => hoveredLangIndex = i);
         setupDonutHover(canvasCategories, categoriesData, drawChartCategories, i => hoveredCategoryIndex = i);
     });
 
-window.addEventListener("resize", () => {
+// #region == EVENTS ==
 
+window.addEventListener("resize", () => {
     resizeCanvas(canvasLang);
     resizeCanvas(canvasCategories);
     resizeCanvas(canvasOther);
-
-    // FIX: prevent redraw during broken/empty state
-    if (langData && langData.summary) {
-        drawChartLangs(langData.summary);
-    }
-
-    if (categoriesData && categoriesData.summary) {
-        drawChartCategories(categoriesData.summary);
-    }
-
-    if (osData && editorsData) {
-        drawOther(canvasOther, osData, editorsData);
-    }
+    redrawAll();
 });
-const observer = new MutationObserver(() => {
-    drawChartLangs(langData.summary);
-    drawChartCategories(categoriesData.summary);
 
-    drawOther(canvasOther, osData, editorsData);
+const observer = new MutationObserver(() => {
+    redrawAll();
 });
 
 observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["data-bs-theme"]
 });
+// #endregion
+// #region == THEMES ==
+function getThemeTextColor() {
+    const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
+    return isDark ? "#fff" : "#111";
+}
+
+function getThemeSubTextColor() {
+    const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
+    return isDark ? "#ccc" : "#444";
+}
+// #endregion

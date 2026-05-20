@@ -55,7 +55,7 @@ export function setTheme(theme) {
 }
 export function getTheme() {
     let theme;
-    console.log("THEME",theme)
+
     // saved theme
     theme = normalizeTheme(localStorage.getItem("theme"));
     if (theme) return theme;
@@ -74,21 +74,11 @@ document.querySelectorAll(".theme-switch").forEach(btn => {
         const current = localStorage.getItem("theme") || getTheme();
         const next = current === "dark" ? "light" : "dark";
 
-        console.log(next)
-
         setTheme(next);
     });
 });
 document.documentElement.setAttribute("data-bs-theme", getTheme());
 // #endregion
-
-getTheme();
-
-// TODO MAKE IT NICE IN CONSOLE
-console.log("Global script")
-console.log(getLanguage())
-
-
 const navbar = document.querySelector(".navbar-blur");
 
 window.addEventListener("scroll", () => {
@@ -98,3 +88,8 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("navbar-scrolled");
     }
 });
+
+getTheme();
+
+// TODO MAKE IT NICE IN CONSOLE
+console.log("Global script", getLanguage())
