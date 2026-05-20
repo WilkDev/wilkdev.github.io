@@ -16,97 +16,147 @@
             </div>
         </div>
     </div>
-    <div class="container  my-5">
+    <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
+        <div class="container">
+            <div class="row py-3">
 
-
-
-        <div class="card bg-transparent border-secondary">
-            <div class="card-body">
-
-                <h5 class="card-title mb-3">Languages</h5>
-
-                <div id="langBars" class="d-flex flex-column gap-2"></div>
-
+                <div class="text-center mb-4">
+                    <h5 class="card-title mb-2">{{page.ANALYTICS_TITLE}}</h5>
+                    <p class="text-muted mb-0">
+                        {{page.ANALYTICS_DESCRIPTION}}
+                    </p>
+                </div>
+                <!-- RIGHT: DONUT -->
+                <div class="col-12 col-lg-6 py-3">
+                    <div class="card glass-card bg-transparent border-secondary h-100">
+                        <div class="card-body d-flex justify-content-center align-items-center">
+                            <canvas class="chart-canvas" id="donutChartLang"
+                                data-title="{{page.ANALYTICS_LANGUAGES}}"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 py-3">
+                    <div class="card glass-card bg-transparent border-secondary h-100">
+                        <div class="card-body d-flex justify-content-center align-items-center">
+                            <canvas class="chart-canvas" id="donutCategoryChart"
+                                data-title="{{page.ANALYTICS_CATEGORIES}}"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-
-
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Section 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Section 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Section 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Section 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
+            <div class="row py-3">
+                <div class="col-12 py-3">
+                    <div class="card glass-card bg-transparent border-secondary h-100">
+                        <div class="card-body d-flex justify-content-center align-items-center">
+                            <canvas class="chart-full-canvas" id="simpleOtherChart"
+                                data-titles='{"os":"{{page.ANALYTICS_OS}}","editors":"{{page.ANALYTICS_EDITORS}}"}'></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
-
+        <div class="position-absolute bottom-0 end-0 p-3">
+            <a href="https://wakatime.com/@WilkDev" title="{{page.ANALYTICS_DATA_POWERED}}:Wakatime"><i
+                    class="bi bi-info-square"></i></a>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
+    </div>
+    <div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor, non
-                    fermentum arcu tincidunt.</p>
-            </div>
 
+
+
+
+        <div class="container my-5 min-vh-100">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Section 2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Section 3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Section 2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Section 3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Section 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
+                        non
+                        fermentum arcu tincidunt.</p>
+                </div>
+
+            </div>
         </div>
     </div>
 </main>
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/main/home-style.css">
 <script type="module" src="{{ site.baseurl }}/assets/scripts/main/home-script.js"></script>
+<script type="module" src="{{ site.baseurl }}/assets/scripts/main/stats-script.js"></script>
