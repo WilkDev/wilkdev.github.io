@@ -4,6 +4,5 @@ _site
 .jekyll-metadata
 vendor
 
-
-TODO.MD
-/TEMP
+# OTHER
+/__TODO__

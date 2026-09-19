@@ -1,6 +1,5 @@
-<!-- Main Content -->
-
 <main>
+    <!-- LANDING -->
     <div class="landing-bg-sky">
         <div class="landing-bg ">
             <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 px-3">
@@ -16,17 +15,181 @@
             </div>
         </div>
     </div>
-    <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
+
+    <!-- ABOUT -->
+    <div>
+        <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
+            <div class="container">
+                <h2>{{page.ABOUT}}</h2>
+                <p class="font-format">{{page.ABOUT_HELLO}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- PROJECTS & EDU -->
+    <div>
+        <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
+            <div class="container">
+                <div class="row g-4">
+                    {% for projects in page.PROJECTS %}
+
+                    <div class="col-12">
+                        <h2 class="display-6 fw-bold mb-4">
+                            {{ projects.title }}
+                        </h2>
+                    </div>
+
+                    {% for section in projects.children %}
+                    <div class="col-12">
+                        <h3 class="h5 text-muted mb-3">
+                            {{ section.title }}
+                        </h3>
+
+                        <div class="row g-3">
+                            {% for entry in section.children %}
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                                            <h4 class="h5 fw-semibold mb-0">
+                                                {{ entry.title }}
+                                            </h4>
+                                            <span class="badge text-bg-light border text-nowrap">
+                                                <i class="bi bi-calendar-range"></i> {{ entry.ended }} – {{
+                                                entry.started }}
+                                            </span>
+                                        </div>
+
+                                        {% if entry.company %}
+                                        <p class="mb-0 text-muted">
+                                            <i class="bi bi-building me-1"></i>
+                                            {{ entry.company }}
+                                        </p>
+                                        {% endif %}
+                                        <!-- TODO DETAILS <span>ss</span> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% endfor %}
+                </div>
+                <hr>
+                <div class="row g-4">
+                    {% for projects in page.EDU %}
+
+                    <div class="col-12">
+                        <h2 class="display-6 fw-bold mb-2">
+                            {{ projects.title }}
+                        </h2>
+                    </div>
+
+                    {% for section in projects.children %}
+                    <div class="col-12">
+                        <h3 class="h5 text-muted mb-3">
+                            {{ section.title }}
+                        </h3>
+
+                        <div class="row g-3">
+                            {% for entry in section.children %}
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="card-body">
+
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h4 class="h5 mb-0">
+                                                {{ entry.title }}
+                                            </h4>
+                                            {% if entry.place && entry.started %}
+                                            <span class="badge text-bg-primary">
+                                                <i class="bi bi-calendar-range"></i>
+                                                {{ entry.ended }} – {{ entry.started }}
+                                            </span>
+                                            {% elsif entry.issued %}
+                                            <span class="badge text-bg-primary">
+                                                <i class="bi bi-calendar-range"></i>
+                                                {{ entry.issued }}
+                                            </span>
+                                            {% endif %}
+                                        </div>
+
+                                        {% if entry.subject %}
+                                        <p class="mb-2 fw-medium">
+                                            {{ entry.subject }}
+                                        </p>
+                                        {% endif %}
+
+                                        {% if entry.place %}
+                                        <p class="mb-0 text-muted small">
+                                            <i class="bi bi-mortarboard-fill"></i>
+                                            {{ entry.place }}
+                                        </p>
+                                        {% endif %}
+
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            {% if entry.issued_by %}
+                                            <p class="mb-0 text-muted small">
+                                                <i class="bi bi-mortarboard-fill"></i>
+                                                {{ entry.issued_by }}
+                                            </p>
+
+                                            <a href="{{ entry.url }}" target="_blank" title="{{entry.id}}">
+                                                <span class="badge text-bg-info">
+                                                    <i class="bi bi-info-circle"></i>
+                                                </span>
+                                            </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tech -->
+    <div>
+        <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
+            <div class="container">
+                {% for section in page.TECHNOLOGIES %}
+                <h2>{{section.title}}</h2>
+                {% endfor %}
+                <ul>
+                    {% for category in page.TECH_STACK %}
+                    <h2>{{ category.title }}</h2>
+
+                    <ul>
+                        {% for skill in category.children %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ANALYTICS -->
+    <div class="min-vh-100 d-flex align-items-center">
         <div class="container">
             <div class="row py-3">
 
                 <div class="text-center mb-4">
-                    <h5 class="card-title mb-2">{{page.ANALYTICS_TITLE}}</h5>
+                    <h5 class="card-title mb-2">{{page.ANALYTICS_TITLE}} <a href="https://wakatime.com/@WilkDev"
+                            title="{{page.ANALYTICS_DATA_POWERED}}:Wakatime" target="_blank">WakaTime</a></h5>
                     <p class="text-muted mb-0">
                         {{page.ANALYTICS_DESCRIPTION}}
                     </p>
                 </div>
-                <!-- RIGHT: DONUT -->
                 <div class="col-12 col-lg-6 py-3">
                     <div class="card glass-card bg-transparent border-secondary h-100">
                         <div class="card-body d-flex justify-content-center align-items-center">
@@ -54,109 +217,10 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="position-absolute bottom-0 end-0 p-3">
-            <a href="https://wakatime.com/@WilkDev" title="{{page.ANALYTICS_DATA_POWERED}}:Wakatime"><i
-                    class="bi bi-info-square"></i></a>
-        </div>
-    </div>
-    <div>
-
-
-
-
-
-
-        <div class="container my-5 min-vh-100">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Section 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Section 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Section 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Section 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Section 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod velit at purus tempor,
-                        non
-                        fermentum arcu tincidunt.</p>
-                </div>
-
-            </div>
         </div>
     </div>
 </main>
+<!-- <pre>{{ page.EDU | inspect }}</pre> -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/main/home-style.css">
 <script type="module" src="{{ site.baseurl }}/assets/scripts/main/home-script.js"></script>
 <script type="module" src="{{ site.baseurl }}/assets/scripts/main/stats-script.js"></script>

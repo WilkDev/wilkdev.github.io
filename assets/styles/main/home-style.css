@@ -99,3 +99,7 @@ SKY
     height: 1.5px;
     width: 1.5px;
 }
+
+.font-format {
+    white-space: pre-line;
+}
