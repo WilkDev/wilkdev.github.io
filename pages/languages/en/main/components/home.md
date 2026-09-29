@@ -58,7 +58,7 @@ EDU:
         started: 2015
         ended: 2018
         place: Wyższa Szkoła Ekonomii i Informatyki w Krakowie
-        subject: Computer Science of Video Games
+        subject: Computer Science and Econometrics
     - title: Certyfikaty
       children:
       - issued: 09.2026
