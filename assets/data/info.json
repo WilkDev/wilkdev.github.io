@@ -1,0 +1,342 @@
+{
+    "technologies": [
+        {
+            "title": "WEB (HMTL/JS/CSS)",
+            "lvl": 3,
+            "childrens": [
+                {
+                    "title": "Angular"
+                },
+                {
+                    "title": "Bootstrap"
+                },
+                {
+                    "title": "TypeScript"
+                }
+            ]
+        },
+        {
+            "title": "Python",
+            "lvl": 5,
+            "childrens": [
+                {
+                    "title": "Flask"
+                },
+                {
+                    "title": "Fast API"
+                },
+                {
+                    "title": "SQLAlchemy"
+                },
+                {
+                    "title": "pandas"
+                },
+                {
+                    "title": "selenium"
+                },
+                {
+                    "title": "numpy"
+                },
+                {
+                    "title": "matplotlib"
+                },
+                {
+                    "title": "pillow"
+                },
+                {
+                    "title": "Jinja2"
+                }
+            ]
+        },
+        {
+            "title": "Java",
+            "lvl": 1,
+            "childrens": [
+                {
+                    "title": "Spring Boot"
+                },
+                {
+                    "title": "Android SDK"
+                }
+            ]
+        },
+        {
+            "title": "C#",
+            "lvl": 2,
+            "childrens": [
+                {
+                    "title": ".Net"
+                },
+                {
+                    "title": "godot SDK"
+                }
+            ]
+        },
+        {
+            "title": "Kotlin",
+            "lvl": 1,
+            "childrens": [
+                {
+                    "title": "Android SDK"
+                }
+            ]
+        },
+        {
+            "title": "Rust",
+            "lvl": 1,
+            "childrens": [
+                {
+                    "title": "tokio"
+                }
+            ]
+        },
+        {
+            "title": "C++",
+            "lvl": 1,
+            "childrens": []
+        }
+    ],
+    "tools": [
+        {
+            "title": "Editor/IDE",
+            "childrens": [
+                {
+                    "title": "Visual Studio Code"
+                },
+                {
+                    "title": "PyCharm"
+                },
+                {
+                    "title": "Visual Studio"
+                },
+                {
+                    "title": "WEbStorm"
+                },
+                {
+                    "title": "IntelliJ IDEA (CE)"
+                },
+                {
+                    "title": "Android Studio"
+                },
+                {
+                    "title": "Eclipse"
+                },
+                {
+                    "title": "Notepad ++"
+                }
+            ]
+        },
+        {
+            "title": "DataBase",
+            "childrens": [
+                {
+                    "title": "DBSchema"
+                },
+                {
+                    "title": "DBeaver"
+                },
+                {
+                    "title": "pgAdmin"
+                },
+                {
+                    "title": "MySQL Workbench"
+                }
+            ]
+        },
+        {
+            "title": "Other",
+            "childrens": [
+                {
+                    "title": "Docker Desktop"
+                },
+                {
+                    "title": "Postman"
+                }
+            ]
+        }
+    ],
+    "topics": [
+        {
+            "title": "Lua"
+        },
+        {
+            "title": "Ruby"
+        },
+        {
+            "title": "Bash"
+        },
+        {
+            "title": "PostgreSQL"
+        },
+        {
+            "title": "MySLQ"
+        },
+        {
+            "title": "SQLite"
+        },
+        {
+            "title": "Azure"
+        },
+        {
+            "title": "GIT"
+        },
+        {
+            "title": "LLM"
+        },
+        {
+            "title": "npm"
+        },
+        {
+            "title": "PyPi"
+        },
+        {
+            "title": "Maven"
+        },
+        {
+            "title": "Gradle"
+        },
+        {
+            "title": "JSON"
+        },
+        {
+            "title": "XML"
+        },
+        {
+            "title": "SQL"
+        },
+        {
+            "title": "Docker"
+        },
+        {
+            "title": "JWT"
+        },
+        {
+            "title": "oAuth 2.0"
+        }
+    ],
+    "buzzterms": [
+        {
+            "title": "OOP"
+        },
+        {
+            "title": "ORM"
+        },
+        {
+            "title": "REST API"
+        },
+        {
+            "title": "LLM APIs"
+        },
+        {
+            "title": "JSON Schema"
+        },
+        {
+            "title": "GPT"
+        },
+        {
+            "title": "Azure OpenAI"
+        },
+        {
+            "title": "S3"
+        },
+        {
+            "title": "Yaml"
+        },
+        {
+            "title": "TOML"
+        },
+        {
+            "title": "BASE64"
+        },
+        {
+            "title": "UUID4"
+        },
+        {
+            "title": "Websocket"
+        },
+        {
+            "title": "Swager"
+        },
+        {
+            "title": "Scripting"
+        }
+    ],
+    "other_tpoics": [],
+    "other_tools": [
+        {
+            "title": "Game DEV",
+            "childrens": [
+                {
+                    "title": "Godot"
+                },
+                {
+                    "title": "Unity"
+                },
+                {
+                    "title": "PyGame"
+                }
+            ]
+        },
+        {
+            "title": "Graphic 2D",
+            "childrens": [
+                {
+                    "title": "libresprite"
+                },
+                {
+                    "title": "asprite"
+                },
+                {
+                    "title": "gale"
+                },
+                {
+                    "title": "Krita"
+                },
+                {
+                    "title": "Inscape"
+                },
+                {
+                    "title": "Gimp"
+                }
+            ]
+        },
+        {
+            "title": "Graphic 3D",
+            "childrens": [
+                {
+                    "title": "Blender"
+                }
+            ]
+        },
+        {
+            "title": "Video",
+            "childrens": [
+                {
+                    "title": "DaVinci Resolve"
+                },
+                {
+                    "title": "OBS Studio"
+                }
+            ]
+        },
+        {
+            "title": "Audio",
+            "childrens": [
+                {
+                    "title": "FL Studio"
+                },
+                {
+                    "title": "Audacity"
+                }
+            ]
+        },
+        {
+            "title": "Other",
+            "childrens": [
+                {
+                    "title": "Oracle VirtualBox"
+                }
+            ]
+        }
+    ]
+}

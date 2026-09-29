@@ -161,21 +161,65 @@
     <div>
         <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
             <div class="container">
-                {% for section in page.TECHNOLOGIES %}
-                <h2>{{section.title}}</h2>
-                {% endfor %}
-                <ul>
-                    {% for category in page.TECH_STACK %}
-                    <h2>{{ category.title }}</h2>
+                {% for section in page.INFORMATION %}
+                <div class="row g-4">
+                    <div class="col-12">
+                        <h2 class="display-6 fw-bold mb-4">
+                            {{ section.technologies }}
+                        </h2>
+                    </div>
+                    <!-- <div class="row g-3" id="technologies">?</div> -->
+                    <div class="position-relative technologies-slider">
+                        <div id="technologies" class="row g-3 flex-nowrap overflow-x-auto px-1 info-containder">
+                            <!-- dynamically generated cards -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <h4 class="display-6 fw-bold mb-4">
+                            {{ section.tools }}
+                        </h4>
+                    </div>
+                    <!-- <div class="row g-3" id="technologies">?</div> -->
+                    <div class="position-relative technologies-slider">
+                        <div id="tools" class="row g-3 flex-nowrap overflow-x-auto px-1 info-containder">
+                            <!-- dynamically generated cards -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <h4 class="display-6 fw-bold mb-4">
+                            {{ section.topics }}
+                        </h4>
+                    </div>
+                    <!-- <div class="row g-3" id="technologies">?</div> -->
+                    <div class="position-relative technologies-slider">
+                        <div id="topics" class="row g-3 flex-nowrap overflow-x-auto px-1 info-containder">
+                            <!-- dynamically generated cards -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <h4 class="display-6 fw-bold mb-4">
+                            {{ section.buzzterms }}
+                        </h4>
+                    </div>
+                    <!-- <div class="row g-3" id="technologies">?</div> -->
+                    <div class="position-relative technologies-slider">
+                        <div id="buzzterms" class="row g-3 flex-nowrap overflow-x-auto px-1 info-containder">
+                            <!-- dynamically generated cards -->
+                        </div>
+                    </div>
+                </div>
 
-                    <ul>
-                        {% for skill in category.children %}
-                        <li>{{ skill }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endfor %}
-                </ul>
+                <div id="tools"></div>
+                <div id="other_tpoics"></div>
+                <div id="other_tools"></div>
             </div>
+            {% endfor %}
         </div>
     </div>
     <!-- ANALYTICS -->
@@ -224,3 +268,4 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/main/home-style.css">
 <script type="module" src="{{ site.baseurl }}/assets/scripts/main/home-script.js"></script>
 <script type="module" src="{{ site.baseurl }}/assets/scripts/main/stats-script.js"></script>
+<script type="module" src="{{ site.baseurl }}/assets/scripts/main/info-script.js"></script>

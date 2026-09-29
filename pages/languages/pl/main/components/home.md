@@ -68,31 +68,11 @@ EDU:
         id: UC-24cd4eb9-8def-4827-829a-7131d8dd4af5
         url: https://www.udemy.com/certificate/UC-24cd4eb9-8def-4827-829a-7131d8dd4af5
 
-TECHNOLOGIES:
-  - title: Technologie
-
-TECH_STACK:
-  - title: Backend
-    children:
-      - Python
-      - Flask
-      - SQLAlchemy
-      - REST API
-      - PostgreSQL
-  - title: AI
-    children:
-      - LLM APIs
-      - GPT
-      - Azure OpenAI
-      - JSON Schema
-  - title: Cloud & Infrastructure
-    children:
-      - Azure
-      - S3
-  - title: Frontend
-    children:
-      - Angular
-
+INFORMATION:
+  - technologies: Technologie
+    topics: Tematy
+    buzzterms: Branżowe buzzwordy
+    tools: Narzdzia
 
 ---
 
