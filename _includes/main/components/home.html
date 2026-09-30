@@ -5,23 +5,22 @@
             <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 px-3">
 
                 <h1 class="landing-title display-4 mb-4 text-center">
-                    {{page.LANDING_TITLE_LEFT}} {{site.creator}} {{page.LANDING_TITLE_RIGHT}}
+                    {{page.LANDING.title}}
                 </h1>
 
                 <p class="landing-ctx lead align-self-end landing-ctx-fit landing-ctx-spacer">
-                    {{page.LANDING_CTX}}
+                    {{page.LANDING.context}}
                 </p>
 
             </div>
         </div>
     </div>
-
     <!-- ABOUT -->
     <div>
         <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
             <div class="container">
-                <h2>{{page.ABOUT}}</h2>
-                <p class="font-format">{{page.ABOUT_HELLO}}</p>
+                <h2>{{page.ABOUT.title}}</h2>
+                <p class="font-format">{{page.ABOUT.context}}</p>
             </div>
         </div>
     </div>
@@ -157,7 +156,7 @@
             </div>
         </div>
     </div>
-    <!-- Tech -->
+    <!-- INFORMATION -->
     <div>
         <div class="min-vh-100 d-flex justify-content-center align-items-center position-relative">
             <div class="container">
@@ -228,17 +227,17 @@
             <div class="row py-3">
 
                 <div class="text-center mb-4">
-                    <h5 class="card-title mb-2">{{page.ANALYTICS_TITLE}} <a href="https://wakatime.com/@WilkDev"
-                            title="{{page.ANALYTICS_DATA_POWERED}}:Wakatime" target="_blank">WakaTime</a></h5>
+                    <h5 class="card-title mb-2">{{page.ANALYTICS.title}} <a href="https://wakatime.com/@WilkDev"
+                            title="{{page.ANALYTICS.powered_by}}:Wakatime" target="_blank">WakaTime</a></h5>
                     <p class="text-muted mb-0">
-                        {{page.ANALYTICS_DESCRIPTION}}
+                        {{page.ANALYTICS.description}}
                     </p>
                 </div>
                 <div class="col-12 col-lg-6 py-3">
                     <div class="card glass-card bg-transparent border-secondary h-100">
                         <div class="card-body d-flex justify-content-center align-items-center">
                             <canvas class="chart-canvas" id="donutChartLang"
-                                data-title="{{page.ANALYTICS_LANGUAGES}}"></canvas>
+                                data-title="{{page.ANALYTICS.languages}}"></canvas>
                         </div>
                     </div>
                 </div>
@@ -246,7 +245,7 @@
                     <div class="card glass-card bg-transparent border-secondary h-100">
                         <div class="card-body d-flex justify-content-center align-items-center">
                             <canvas class="chart-canvas" id="donutCategoryChart"
-                                data-title="{{page.ANALYTICS_CATEGORIES}}"></canvas>
+                                data-title="{{page.ANALYTICS.categories}}"></canvas>
                         </div>
                     </div>
                 </div>
@@ -256,7 +255,7 @@
                     <div class="card glass-card bg-transparent border-secondary h-100">
                         <div class="card-body d-flex justify-content-center align-items-center">
                             <canvas class="chart-full-canvas" id="simpleOtherChart"
-                                data-titles='{"os":"{{page.ANALYTICS_OS}}","editors":"{{page.ANALYTICS_EDITORS}}"}'></canvas>
+                                data-titles='{"os":"{{page.ANALYTICS.os}}","editors":"{{page.ANALYTICS.editors}}"}'></canvas>
                         </div>
                     </div>
                 </div>
