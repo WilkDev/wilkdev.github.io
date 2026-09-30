@@ -4,7 +4,12 @@ component: main_home
 lang: en
 permalink: /en/
 
+# {page} ELEMENTS
 TITLE: Home
+META:
+  description: Szymon Wilk, software developer based in Kraków specializing in Python, backend systems, web applications, REST APIs, cloud services, and AI-powered solutions. Explore my projects, experience, education, and technical expertise.
+
+
 # LANDING
 LANDING_TITLE_LEFT: Welcome to
 LANDING_TITLE_RIGHT: github.io page
