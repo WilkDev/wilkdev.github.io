@@ -6,7 +6,7 @@ permalink: /pl/
 
 TITLE: Strona główna
 META:
- description: Szymon Wilk, programista z Krakowa specjalizujący się w Pythonie, systemach backendowych, aplikacjach webowych, REST API, usługach chmurowych oraz rozwiązaniach opartych na sztucznej inteligencji. Poznaj moje projekty, doświadczenie, wykształcenie i kompetencje techniczne.
+ description: Szymon Wilk aka WilkDev, programista z Krakowa specjalizujący się w Pythonie, systemach backendowych, aplikacjach webowych, REST API, usługach chmurowych oraz rozwiązaniach opartych na sztucznej inteligencji. Poznaj moje projekty, doświadczenie, wykształcenie i kompetencje techniczne.
 
 # LANDING
 LANDING:
