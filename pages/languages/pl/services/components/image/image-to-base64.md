@@ -2,11 +2,11 @@
 layout: services/services_containder
 component: service
 lang: pl
-permalink: /pl/services/image-base64
+permalink: /pl/services/image/image-to-base64
 
 # LANG
 TITLE: Service
 
 
 ---
-{% include services/components/image-base64.html %}
+{% include services/components/image/image-to-base64.html %}
