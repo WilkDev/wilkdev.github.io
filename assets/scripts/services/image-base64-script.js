@@ -3,6 +3,8 @@ const browseButton = document.getElementById("browseButton");
 const dropZone = document.getElementById("dropZone");
 const results = document.getElementById("results");
 const fileCount = document.getElementById("fileCount");
+const filePlaceholder = document.getElementById("filePlaceholder");
+const fileCounter = document.getElementById("fileCounter");
 
 const MAX_FILES = 30;
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
@@ -90,7 +92,12 @@ function createResult(file, base64, dataURI) {
 
     convertedFiles++;
 
-    fileCount.textContent = `Completed ${convertedFiles} file${convertedFiles === 1 ? "" : "s"} converted successfully`;
+    if (convertedFiles > 0)
+    {
+        filePlaceholder.classList.add('d-none');
+        fileCount.classList.remove('d-none');
+        fileCounter.textContent = convertedFiles
+    }
 
     const card = document.createElement("details");
     card.className = "card shadow-sm mb-4";
