@@ -3,7 +3,6 @@
 fetch("/assets/data/info.json")
     .then(r => r.json())
     .then(json => {
-        console.log(json);
         buildTech(json.technologies);
         buildTopics(json.topics);
         buildBuzzTerms(json.buzzterms);

@@ -2,12 +2,9 @@
 <html lang="{{ page.lang | default: 'en' }}" data-bs-theme="light">
 
 <head>
-    {% include global-head.html %}
-
-
     <title>{{site.creator}} - {{ page.TITLE }}</title>
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/img/general/icon-light.png">
     <meta name="description" content="{{ page.META.description }}">
+    {% include global-head.html %}
 </head>
 
 <body class="d-flex flex-column min-vh-100 pt-lg-4">

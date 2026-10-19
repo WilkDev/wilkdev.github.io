@@ -1,6 +1,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link id="favicon" rel="icon" type="image/png" href="{{ site.baseurl }}/assets/img/general/icon-light.ico">
+
 <!-- Bootstrap css -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,3 +17,30 @@
 
 
 <script type="module" src="{{ site.baseurl }}/assets/scripts/scripts-global.js"></script>
+
+<script>
+function updateFavicon() {
+    const theme = document.documentElement.getAttribute('data-bs-theme');
+    const favicon = document.getElementById('favicon');
+    const navbarIcon = document.getElementById('navbar-icon');
+
+    if (favicon) {
+        favicon.href = `{{ site.baseurl }}/assets/img/general/icon-${theme}.ico`;
+    }
+
+    if (navbarIcon) {
+        navbarIcon.src = `{{ site.baseurl }}/assets/img/general/icon-${theme}.ico`;
+    }
+}
+
+// Set the favicon on page load
+updateFavicon();
+
+// Watch for changes to data-bs-theme
+const observer = new MutationObserver(updateFavicon);
+
+observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-bs-theme']
+});
+</script>

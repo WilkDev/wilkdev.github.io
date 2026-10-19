@@ -93,20 +93,5 @@ getTheme();
 
 // TODO MAKE IT NICE IN CONSOLE
 console.log("Global script", getLanguage())
-function updateFavicon() {
-    const theme = document.documentElement.getAttribute('data-bs-theme');
-    const favicon = document.getElementById('favicon');
 
-    favicon.href = `{{ site.baseurl }}/assets/img/general/icon-${theme}.png`;
-}
 
-// Set the favicon on page load
-updateFavicon();
-
-// Watch for changes to data-bs-theme
-const observer = new MutationObserver(updateFavicon);
-
-observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-bs-theme']
-});
