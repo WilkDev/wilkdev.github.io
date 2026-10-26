@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://wilkdev.github.io/pl/</loc>
+        <lastmod>2026-10-19</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://wilkdev.github.io/en/</loc>
+        <lastmod>2026-10-19</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://wilkdev.github.io/pl/services/image/image-to-base64/</loc>
+        <lastmod>2026-10-19</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://wilkdev.github.io/en/services/image/image-to-base64/</loc>
+        <lastmod>2026-10-19</lastmod>
+    </sitemap>
+</sitemapindex>
