@@ -1,3 +1,11 @@
+{% assign image_index = false %}
+{% if page.url contains '/services/image'%}
+{% assign image_index = true %}
+{% endif %}
+{% assign generators_index = false %}
+{% if page.url contains '/services/generators'%}
+{% assign generators_index = true %}
+{% endif %}
 <nav class="d-flex flex-column flex-shrink-0 sidebar border-end">
     <div class="row g-2 p-1">
         <div class="col-4">
@@ -15,17 +23,6 @@
     </div>
     <hr class="text-secondary">
     <ul class="nav nav-pills flex-column mb-auto gap-1 p-1">
-        <li class="nav-item">
-            <a href="{{ site.baseurl }}/{{page.lang}}/services" class="nav-link border btn text-body">
-
-                <i class="bi bi-wrench-adjustable-circle"></i>
-                Services
-            </a>
-        </li>
-        {% assign image_index = false %}
-        {% if page.url contains '/services/image'%}
-        {% assign image_index = true %}
-        {% endif %}
         <li class="nav-item w-100">
             <a href="{{ site.baseurl }}/{{ page.lang }}/services/image"
                 class="nav-link border btn text-body {% if page.url contains '/services/image' %}active{% endif %}">
@@ -50,6 +47,23 @@
                     <a href="{{ site.baseurl }}/{{ page.lang }}/services/image/camera"
                         class="nav-link border btn text-body {% if page.url contains '/services/base64-image' %}active{% endif %} disabled">
                         Camera
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
+        </li>
+        <li class="nav-item w-100">
+            <a href="{{ site.baseurl }}/{{ page.lang }}/services/generators"
+                class="nav-link border btn text-body {% if page.url contains '/services/generators' %}active{% endif %}">
+                <i class="bi bi-code-square"></i>
+                Generators
+            </a>
+            {% if generators_index %}
+            <ul class="nav flex-column ms-3 mt-1 gap-1">
+                <li class="nav-item">
+                    <a href="{{ site.baseurl }}/{{ page.lang }}/services/generators/uuid"
+                        class="nav-link border btn text-body {% if page.url contains '/services/image/uuid' %}active{% endif %}">
+                        UUID
                     </a>
                 </li>
             </ul>

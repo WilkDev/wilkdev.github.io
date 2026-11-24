@@ -1,12 +1,12 @@
 ---
 layout: services/services_containder
 component: service
-lang: en
-permalink: /en/services/image
+lang: pl
+permalink: /pl/services/image
 
 # LANG
 TITLE: Service
 
 
 ---
-{% include services/components/image/image-index.html %}
+{% include services/components/image/index.html %}
